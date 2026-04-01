@@ -1,0 +1,50 @@
+# Patent Writor Task Definitions
+# Tasks define what each agent needs to accomplish
+
+write_patent:
+  description: >
+    Draft a complete patent document based on the provided technical input
+    materials. The document should include:
+    - Title and abstract
+    - Background and prior art summary
+    - Detailed technical description
+    - Claims (independent and dependent)
+    - Drawings description (if applicable)
+  expected_output: >
+    A complete patent draft in markdown format, ready for review and
+    potential modification based on prior art search results.
+  agent: patent_writer
+
+search_patents:
+  description: >
+    Search patent databases for prior art related to the invention.
+    Use available search tools to find similar patents and publications
+    that may affect the novelty or non-obviousness of the claims.
+  expected_output: >
+    A comprehensive search report listing relevant prior art references
+    with analysis of their relevance to each claim.
+  agent: patent_searcher
+
+review_patent:
+  description: >
+    Evaluate the patent draft across four dimensions:
+    1. Innovation (创新点): Novelty and non-obviousness
+    2. Value (价值): Commercial and strategic importance
+    3. Avoidability (可规避性): How easily the invention can be designed around
+    4. Detectability (可检测性): Ease of detecting infringement
+  expected_output: >
+    A detailed review report with scores and recommendations for each
+    dimension, highlighting areas for improvement.
+  agent: patent_reviewer
+
+modify_patent:
+  description: >
+    Revise the patent document based on:
+    - Prior art search results
+    - Review feedback
+    - Identified areas for improvement
+    Ensure the final patent is robust and defensible.
+  expected_output: >
+    An updated patent document incorporating all feedback, with a summary
+    of changes made and rationale for each modification.
+  agent: patent_modifier

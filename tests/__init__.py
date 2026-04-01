@@ -1,0 +1,1 @@
+"""Patent Writor tests module."""
